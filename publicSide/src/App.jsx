@@ -6,8 +6,10 @@ import ListProducts from './components/listProducts';
 import ProductDetail from './components/ProductDetail';
 
 function App() {
+  const url = 'https://shoes.hascine.xyz';
   const [page, setPage] = useState('home');
   const [productDetail, setProductDetail] = useState({});
+
   const changePage = (newPage = '', product) => {
     setPage(newPage);
     setProductDetail(product);
@@ -19,7 +21,7 @@ function App() {
         {page == 'home' && (
           <>
             {/* Product */}
-            <ListProducts changePageApp={changePage} />
+            <ListProducts url={url} changePageApp={changePage} />
           </>
         )}
 
