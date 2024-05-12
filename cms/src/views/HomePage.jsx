@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import ProductTable from '../components/assets/ProductTable';
 
 export default function HomePage({ url }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = 'Products | Sneaky Foot';
   }, []);
@@ -17,15 +19,16 @@ export default function HomePage({ url }) {
           >
             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
               <h1 className="display-2">Products</h1>
-              <Link to={'/products/add'}>
-                <button
-                  className="btn btn-primary rounded-pill"
-                  id="new-product"
-                >
-                  <span className="icon material-symbols-outlined">add</span>New
-                  Product
-                </button>
-              </Link>
+              <button
+                className="btn btn-primary rounded-pill"
+                id="new-product"
+                onClick={() => {
+                  navigate('/products/add');
+                }}
+              >
+                <span className="icon material-symbols-outlined">add</span>New
+                Product
+              </button>
             </div>
             <div className="row">
               <div className="col-12 table-responsive">

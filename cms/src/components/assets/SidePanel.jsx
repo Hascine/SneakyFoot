@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function SidePanel() {
@@ -20,28 +20,43 @@ export default function SidePanel() {
         <div className="position-sticky pt-3">
           <ul className="nav flex-column">
             <li className="nav-item">
-              <a className="nav-link" href="/products" id="nav-product">
+              <Link
+                role="button"
+                className="nav-link"
+                id="nav-category"
+                to={'/products'}
+              >
                 <span className="icon material-symbols-outlined me-2">
                   shopping_bag
                 </span>
                 Products
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/categories" id="nav-category">
+              <Link
+                role="button"
+                className="nav-link"
+                id="nav-category"
+                to={'/categories'}
+              >
                 <span className="icon material-symbols-outlined me-2">
                   category
                 </span>
                 Categories
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/user/add" id="nav-category">
+              <Link
+                role="button"
+                className="nav-link"
+                id="nav-category"
+                to={'/user/add'}
+              >
                 <span className="icon material-symbols-outlined me-2">
                   account_circle
                 </span>
                 Add User
-              </a>
+              </Link>
             </li>
           </ul>
           <h6 className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">

@@ -34,7 +34,7 @@ export default function Categories({ url }) {
 
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     document.title = 'Categories | Sneaky Foot';

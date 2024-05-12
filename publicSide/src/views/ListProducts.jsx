@@ -56,9 +56,9 @@ export default function ListProducts(props) {
                 onChange={(e) => setFilter(e.target.value)}
               >
                 <option value="">Select Categories</option>
-                {category.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
+                {category.map((e) => (
+                  <option key={e.id} value={e.id}>
+                    {e.name}
                   </option>
                 ))}
               </select>

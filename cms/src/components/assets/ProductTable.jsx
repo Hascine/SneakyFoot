@@ -1,8 +1,8 @@
-import rupiah from '../helpers/toIdr';
-import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import rupiah from '../helpers/toIdr';
 import { toast } from 'react-toastify';
+import { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function ProductTable({ url }) {
   const [product, setproduct] = useState([]);
@@ -26,9 +26,17 @@ export default function ProductTable({ url }) {
     }
   };
 
+  function handleEdit(id) {
+    navigate(`/products/edit/${id}`);
+  }
+
+  function handleImage(id) {
+    navigate(`/products/img/${id}`);
+  }
+
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [navigate]);
 
   async function handleDelete(id) {
     try {
@@ -97,16 +105,29 @@ export default function ProductTable({ url }) {
                         </span>
                       </div>
                     </Link>
-                    <a href={`/products/edit/${e.id}`} className="ms-3">
+
+                    <Link
+                      role="button"
+                      onClick={() => {
+                        handleEdit(e.id);
+                      }}
+                      className="ms-3"
+                    >
                       <span className="icon material-symbols-outlined text-danger">
                         edit
                       </span>
-                    </a>
-                    <a href={`/products/img/${e.id}`} className="ms-3">
+                    </Link>
+                    <Link
+                      role="button"
+                      onClick={() => {
+                        handleImage(e.id);
+                      }}
+                      className="ms-3"
+                    >
                       <span className="icon material-symbols-outlined text-danger">
                         image
                       </span>
-                    </a>
+                    </Link>
                   </span>
                 </td>
               </tr>

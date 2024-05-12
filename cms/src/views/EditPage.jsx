@@ -37,7 +37,7 @@ export default function EditPage({ url }) {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [id, navigate]);
 
   useEffect(() => {
     document.title = `Edit Product ${product?.id || ''} | Sneaky Foot`;

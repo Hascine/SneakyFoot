@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Button from '../components/assets/Button';
 import { toast } from 'react-toastify';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register({ url }) {
   const navigate = useNavigate();

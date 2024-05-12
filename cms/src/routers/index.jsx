@@ -1,13 +1,15 @@
-import { createBrowserRouter, redirect } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import BaseLayout from '../views/BaseLayout';
+import { createBrowserRouter, redirect } from 'react-router-dom';
+
 import Login from '../views/Login';
-import Register from '../views/Register';
-import HomePage from '../views/HomePage';
-import Categories from '../views/Categories';
 import AddPage from '../views/AddPage';
 import EditPage from '../views/EditPage';
+import Register from '../views/Register';
+import HomePage from '../views/HomePage';
+import BaseLayout from '../views/BaseLayout';
+import Categories from '../views/Categories';
 import ImageUpdate from '../views/ImageUpdate';
+
 const url = 'https://shoes.hascine.xyz';
 
 const Router = createBrowserRouter([
