@@ -1,5 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+import rupiah from '../helpers/toIdr';
+
 export default function ProductCard(props) {
-  const { product, changePageList } = props;
+  const { product } = props;
+  const navigate = useNavigate();
+
+  function handleDetail(id) {
+    navigate(`/detail/${id}`);
+  }
   return (
     <>
       <div className="card bg-base-100 shadow-xl">
@@ -8,12 +16,12 @@ export default function ProductCard(props) {
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{product.name}</h2>
-          <p>{product.price}</p>
+          <p>{rupiah(product.price)}</p>
           <div className="card-actions">
             <button
               className="btn btn-primary"
               onClick={() => {
-                changePageList('detail', product);
+                handleDetail(product.id);
               }}
             >
               Read more

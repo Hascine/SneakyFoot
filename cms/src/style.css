@@ -4,7 +4,7 @@
  * Copyright 2022 Ziady Mubaraq
  * MIT License
  */
-@font-face {
+/* @font-face {
   font-family: 'NotoIKEA';
   src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Regular.woff2)
       format('woff2'),
@@ -13,9 +13,9 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: 'NotoIKEA';
   src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Bold.woff2)
       format('woff2'),
@@ -24,9 +24,9 @@
   font-weight: bold;
   font-style: normal;
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: 'NotoIKEA';
   src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-Italic.woff2)
       format('woff2'),
@@ -35,9 +35,9 @@
   font-weight: normal;
   font-style: italic;
   font-display: swap;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: 'NotoIKEA';
   src: url(https://www.ikea.co.id/webroot/fonts/NotoIKEALatin/NotoIKEALatin-BoldItalic.woff2)
       format('woff2'),
@@ -46,7 +46,7 @@
   font-weight: bold;
   font-style: italic;
   font-display: swap;
-}
+} */
 
 ::selection {
   background: #407ab1;

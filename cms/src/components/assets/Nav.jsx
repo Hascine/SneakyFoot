@@ -5,16 +5,15 @@ export default function Nav() {
         className="navbar sticky-top bg-white flex-md-nowrap p-0 shadow"
         id="navbar"
       >
-        <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
-          {' '}
+        <div className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6">
           <img
-            src="../components/IDEA_logo.svg"
-            width="80"
+            src="/logo.png"
+            width="50"
             className="d-inline-block me-2"
-            alt="IDEA"
+            alt="SF"
           />
           Admin Panel
-        </a>
+        </div>
         <button
           className="navbar-toggler position-absolute d-md-none collapsed"
           type="button"

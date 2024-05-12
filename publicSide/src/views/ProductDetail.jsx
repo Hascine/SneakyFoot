@@ -1,5 +1,34 @@
+import rupiah from '../helpers/toIdr';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 export default function ProductDetail(props) {
-  const { dataProduct } = props;
+  const { url } = props;
+  const { id } = useParams();
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const detail = async () => {
+    try {
+      setLoading(true);
+
+      const { data } = await axios.get(`${url}/pub/products/${id}`);
+      setProduct(data.data);
+    } catch (error) {
+      toast.error(error.response.data.message, { position: 'bottom-right' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    detail();
+  }, []);
+
+  if (loading) return <img src="/walking.gif" alt="Loading" width={120} />;
+
   return (
     <>
       {/* <!-- component --> */}
@@ -9,14 +38,14 @@ export default function ProductDetail(props) {
             <img
               alt="ecommerce"
               className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-              src={dataProduct.imgUrl}
+              src={product.imgUrl}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
                 BRAND NAME
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                {dataProduct.name}
+                {product.name}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -116,7 +145,7 @@ export default function ProductDetail(props) {
                   </a>
                 </span>
               </div>
-              <p className="leading-relaxed">{dataProduct.description}</p>
+              <p className="leading-relaxed">{product.description}</p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                 <div className="flex">
                   <span className="mr-3">Color</span>
@@ -151,7 +180,7 @@ export default function ProductDetail(props) {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  {dataProduct.price}
+                  {rupiah(product.price)}
                 </span>
                 <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                   Buy

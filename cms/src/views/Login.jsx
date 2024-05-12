@@ -1,4 +1,49 @@
-export default function Login() {
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
+export default function Login({ url }) {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [Loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    try {
+      setLoading(true);
+
+      const addedData = { email, password };
+
+      const { data } = await axios.post(`${url}/login`, addedData);
+
+      localStorage.setItem('access_token', data.access_token);
+
+      toast.success('Successfully logged in', { position: 'bottom-right' });
+
+      navigate('/');
+    } catch (error) {
+      toast.error(error.response.data.message, { position: 'bottom-right' });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function emailOnChange(event) {
+    setEmail(event.target.value);
+  }
+
+  function passwordOnChange(event) {
+    setPassword(event.target.value);
+  }
+
+  useEffect(() => {
+    document.title = 'Login | Sneaky Foot';
+  }, []);
+
+  if (Loading) return <img src="/walking.gif" alt="loading" width={100} />;
+
   return (
     <>
       <section className="container" id="login-section">
@@ -31,7 +76,7 @@ export default function Login() {
                     </span>
                     <div className="mb-3 mt-3">
                       <div className="d-flex justify-content-between">
-                        <label for="login-email">Email</label>
+                        <label htmlFor="login-email">Email</label>
                         <label className="text-danger text-end fw-bold">
                           *
                         </label>
@@ -41,13 +86,14 @@ export default function Login() {
                         className="form-control"
                         id="login-email"
                         placeholder="Enter email address ..."
-                        autocomplete="off"
+                        autoComplete="off"
                         required
+                        onChange={emailOnChange}
                       />
                     </div>
                     <div className="mb-4">
                       <div className="d-flex justify-content-between">
-                        <label htmlForfor="login-password">Password</label>
+                        <label htmlFor="login-password">Password</label>
                         <label className="text-danger text-end fw-bold">
                           *
                         </label>
@@ -57,8 +103,9 @@ export default function Login() {
                         className="form-control"
                         id="login-password"
                         placeholder="Enter your password ..."
-                        autocomplete="off"
+                        autoComplete="off"
                         required
+                        onChange={passwordOnChange}
                       />
                     </div>
                     <div className="checkbox mb-3">
@@ -71,7 +118,7 @@ export default function Login() {
                         />
                         <label
                           className="form-check-label"
-                          htmlForfor="login-remember"
+                          htmlFor="login-remember"
                         >
                           Remember me
                         </label>
@@ -80,6 +127,7 @@ export default function Login() {
                     <button
                       className="btn btn-lg btn-primary rounded-pill w-100 p-2"
                       type="submit"
+                      onClick={handleLogin}
                     >
                       Log In
                     </button>

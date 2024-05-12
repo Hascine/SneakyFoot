@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Navbar(props) {
   const { changePage } = props;
   return (
@@ -5,7 +7,7 @@ export default function Navbar(props) {
       <nav className="navbar relative bg-base-100 shadow">
         <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
           <div className="flex items-center justify-between">
-            <a href="#">
+            <a href="/">
               <img
                 className="w-auto h-auto sm:h-7"
                 src="/logo.png"
@@ -25,7 +27,7 @@ export default function Navbar(props) {
             <div className="flex flex-col md:flex-row md:mx-6">
               <a
                 className="my-2 text-gray-700 transition-colors duration-300 transform hover:text-blue-500 md:mx-4 md:my-0"
-                href="#"
+                href="/"
                 onClick={() => {
                   changePage('home');
                 }}
