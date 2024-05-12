@@ -69,7 +69,7 @@ Pastikan setiap pergantian tampilan terjadi secara reaktif dengan tidak me-refre
   - [x] GET data entitas utama pada halaman Home/Landing Page (include: pagination, filter dan sort)
   - [x] GET data detail entitas utama pada halaman Detail
 
-- [ ] CMS site
+- [x] CMS site
   - [x] POST pada halaman Login
   - [x] GET data entitas utama pada halaman list entitas utama (include: pagination, filter dan sort)
   - [x] POST pada halaman create entitas utama
@@ -101,4 +101,4 @@ Project web-client kalian akan terdiri dari beberapa page/route. Silahkan Implem
 
 Coba lakukan deployment untuk client (bisa coba deploy hal sederhana terlebih dahulu seperti halaman yang menampilkan ‘hello world’) menggunakan Firebase
 
-- [ ] Deploy client
+- [x] Deploy client
