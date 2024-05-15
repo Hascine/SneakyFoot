@@ -35,7 +35,6 @@ export default function ListProducts(props) {
   }
 
   useEffect(() => {
-    console.log('Fetch data');
     fetchData();
   }, [search, filter, sort, page]);
 
@@ -56,11 +55,19 @@ export default function ListProducts(props) {
                 onChange={(e) => setFilter(e.target.value)}
               >
                 <option value="">Select Categories</option>
-                {category.map((e) => (
-                  <option key={e.id} value={e.id}>
-                    {e.name}
-                  </option>
-                ))}
+                {!loading ? (
+                  category.map((e) => (
+                    <option key={e.id} value={e.id}>
+                      {e.name}
+                    </option>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={8} className="text-center">
+                      <img src="/walking.gif" alt="Loading" width={120} />
+                    </td>
+                  </tr>
+                )}
               </select>
             </div>
           </section>
@@ -85,12 +92,7 @@ export default function ListProducts(props) {
                 </svg>
               </div>
               <div>
-                <form
-                  className="w-auto"
-                  action=""
-                  method="get
-          "
-                >
+                <form className="w-auto" action="" method="get">
                   <input
                     className="peer h-full w-full outline-none text-sm border-gray-600 text-gray-700 pr-2"
                     type="text"
