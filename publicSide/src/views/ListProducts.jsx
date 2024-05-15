@@ -17,8 +17,6 @@ export default function ListProducts(props) {
 
   async function fetchData() {
     try {
-      setLoading(true);
-
       const { data } = await axios.get(
         `${url}/pub/products?filter=${filter}&sort=${sort}&page[size]=10&page[number]=${page}&search=${search}`
       );
